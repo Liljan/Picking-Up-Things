@@ -26,6 +26,7 @@
     <ClInclude Include="include\HighscoreState.h" />
     <ClInclude Include="include\IntroState.h" />
     <ClInclude Include="include\KeyState.h" />
+    <ClInclude Include="include\Text.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Entity.cpp" />
@@ -34,6 +35,7 @@
     <ClCompile Include="src\HighscoreState.cpp" />
     <ClCompile Include="src\IntroState.cpp" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Text.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{66E3D3F2-29DC-4120-BE55-AEC826EB374C}</ProjectGuid>
@@ -86,29 +88,29 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\external\SDL2_ttf-2.0.14\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\external\SDL2_ttf-2.0.14\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\external\SDL2_ttf-2.0.14\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\external\SDL2_ttf-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\lib\x64;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\external\SDL2_ttf-2.0.14\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -117,13 +119,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\external\SDL2_ttf-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\lib\x64;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\external\SDL2_ttf-2.0.14\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -152,14 +154,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\include;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\external\SDL2_ttf-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\SDL2\lib\x64;C:\Users\Big Boss\Documents\Picking-Up-Things\Picking-Up-Things\Picking-Up-Things\external\SDL2_ttf-2.0.14\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>

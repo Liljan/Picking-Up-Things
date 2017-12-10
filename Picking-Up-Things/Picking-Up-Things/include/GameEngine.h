@@ -2,6 +2,7 @@
 
 #include "SDL.h"
 #include "Entity.h"
+#include "Text.h"
 #include <iostream>
 #include <vector>
 

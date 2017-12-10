@@ -13,6 +13,7 @@ void IntroState::Init(GameEngine * gameEngine, SDL_Renderer * renderer)
 {
 	m_GameEngine = gameEngine;
 	m_Renderer = renderer;
+
 }
 
 void IntroState::CleanUp()

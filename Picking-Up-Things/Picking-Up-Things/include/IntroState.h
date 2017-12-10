@@ -17,4 +17,8 @@ public:
 	void InputEvent(int mod, int state, int key);
 	void Update(float dt);
 	void Render();
+
+private:
+	TTF_Font* m_Font;
+	Text m_Text;
 };
