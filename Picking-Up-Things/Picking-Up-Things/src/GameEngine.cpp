@@ -11,6 +11,7 @@ GameEngine::GameEngine()
 	m_HighScoreState = new HighscoreState();
 }
 
+
 GameEngine::~GameEngine()
 {
 	delete m_IntroState;
@@ -18,43 +19,56 @@ GameEngine::~GameEngine()
 	delete m_HighScoreState;
 }
 
+
 void GameEngine::Init(const char * title, int x, int y, int width, int height, bool fullScreen)
 {
 	int flags = 0;
+	int result;
 
 	if (fullScreen)
 		flags = SDL_WINDOW_FULLSCREEN;
 
-	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
+	result = SDL_Init(SDL_INIT_EVERYTHING);
+
+	if (result != NULL)
 	{
-		std::cout << "All subsystems initialized..." << std::endl;
-
-		m_Window = SDL_CreateWindow(title, x, y, width, height, flags);
-		if (m_Window)
-			std::cout << "Window created" << std::endl;
-
-		m_Renderer = SDL_CreateRenderer(m_Window, -1, 0);
-		if (m_Renderer)
-		{
-			SDL_SetRenderDrawColor(m_Renderer, 0, 0, 0, 255);
-			std::cout << "Renderer created" << std::endl;
-		}
-
-		// Init Game States
-
-		m_IntroState->Init(this, m_Renderer);
-		m_GameplayState->Init(this, m_Renderer);
-		m_HighScoreState->Init(this, m_Renderer);
-		m_currentState = m_IntroState;
-
-		SetRunning(true);
-	}
-	else
-	{
-		std::cout << "Error in initialization." << std::endl;
+		std::cout << "Error no. " << result << " when initializing basic SDL" << std::endl;
 		Quit();
+		return;
 	}
+
+	result = TTF_Init();
+
+	if (TTF_Init() != NULL)
+	{
+		std::cout << "Error no. " << result << " when initializing TTF" << std::endl;
+	}
+
+	// ALL SYSTEMS ARE INITIALIZED CORRECTLY! :)
+
+	std::cout << "All subsystems initialized..." << std::endl;
+
+	m_Window = SDL_CreateWindow(title, x, y, width, height, flags);
+	if (m_Window)
+		std::cout << "Window created" << std::endl;
+
+	m_Renderer = SDL_CreateRenderer(m_Window, -1, 0);
+	if (m_Renderer)
+	{
+		SDL_SetRenderDrawColor(m_Renderer, 0, 0, 0, 255);
+		std::cout << "Renderer created" << std::endl;
+	}
+
+	// Init Game States
+
+	m_IntroState->Init(this, m_Renderer);
+	m_GameplayState->Init(this, m_Renderer);
+	m_HighScoreState->Init(this, m_Renderer);
+	m_currentState = m_IntroState;
+
+	SetRunning(true);
 }
+
 
 void GameEngine::HandleEvents()
 {
@@ -80,15 +94,18 @@ void GameEngine::HandleEvents()
 	}
 }
 
+
 void GameEngine::Update(float dt)
 {
 	m_currentState->Update(dt);
 }
 
+
 void GameEngine::Render()
 {
 	m_currentState->Render();
 }
+
 
 void GameEngine::SetState(State gameState)
 {
@@ -108,11 +125,13 @@ void GameEngine::SetState(State gameState)
 	}
 }
 
+
 void GameEngine::Clean()
 {
 	SDL_DestroyWindow(m_Window);
 	SDL_DestroyRenderer(m_Renderer);
 	SDL_Quit();
+	TTF_Quit();
 
 	std::cout << "GameEngine cleared." << std::endl;
 }

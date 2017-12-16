@@ -13,10 +13,12 @@ enum class State
 	HIGHSCORE
 };
 
+
 class GameState;
 class IntroState;
 class GameplayState;
 class HighscoreState;
+
 
 class GameEngine
 {
@@ -49,3 +51,4 @@ private:
 
 	GameState* m_currentState;
 };
+
